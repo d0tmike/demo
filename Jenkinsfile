@@ -1,24 +1,9 @@
 pipeline {
-    agent any
-    tools {
-        jdk 'JDK8'
-        maven 'M3'
-    }
+    agent { dockerfile true }
     stages {
-        stage('Build') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/d0tmike/demo.git']]])
-                sh mvn clean package
-            }
-        }
         stage('Test') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh 'mvn -version'
             }
         }
     }
