@@ -3,7 +3,7 @@ pipeline {
     tools {
         jdk 'JDK8'
         maven 'M3'
-        git 
+    }
     stages {
         stage('Build') {
             steps {
