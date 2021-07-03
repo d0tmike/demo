@@ -9,10 +9,5 @@ pipeline {
                 sh 'docker build -t d0tmike/demo .'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'node --version'
-            }
-        }
     }
 }
